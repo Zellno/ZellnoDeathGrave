@@ -38,8 +38,8 @@ Tested on DayZ 1.29 with a dedicated server and a clean persistence restart.
 Automatic grave creation, equipment transfer, nested inventory persistence,
 manual recovery and empty-grave deletion have passed local testing.
 
-A dedicated two-player test confirming that a non-owner cannot view or remove
-the stored equipment is still pending.
+A dedicated hosted two-player test confirmed that a non-owner cannot view or
+remove stored equipment, while the owner retains normal recovery access.
 
 [h2]Source code[/h2]
 

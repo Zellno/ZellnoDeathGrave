@@ -28,9 +28,11 @@ All notable changes to Zellno Death Grave are documented in this file.
 - No Death Grave compilation errors, invalid-location discards or persistence
   corruption warnings in the test logs.
 
-### Pending
+### Multiplayer validation
 
-- Two-player validation of non-owner inventory visibility and access.
+- Confirmed on the hosted server that a non-owner cannot view or remove
+  equipment from another player's grave.
+- Confirmed that the owner retains normal recovery access.
 
 ## 0.0.12 - 2026-09-06
 

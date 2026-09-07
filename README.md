@@ -7,8 +7,8 @@ when a player dies.
 
 Version `0.0.13` for DayZ 1.29.
 
-The automatic grave workflow and persistence have completed local functional
-testing. Validation with a second player is still pending.
+The automatic grave workflow, persistence and multiplayer ownership
+protection have completed functional testing.
 
 ## Features
 
@@ -62,10 +62,9 @@ The persistence test passed with loaded clothing and a loaded backpack:
 The grave synchronizes an owner hash to clients and displays its equipment
 inventory only when the local player matches the stored owner.
 
-Local owner behavior has been validated. A dedicated two-player test with a
-non-owner is still pending. Until that test is completed, server operators
-should treat non-owner access protection as not yet fully validated in
-multiplayer.
+Multiplayer ownership protection has been validated on the hosted server
+with two simultaneous players. A non-owner could not view or remove equipment
+from another player's grave, while the owner retained normal recovery access.
 
 ## Compatibility
 
@@ -97,10 +96,10 @@ Tools through Wine.
 assumes the Zellno directory layout under `$HOME/dayz` and should be reviewed
 before use in another environment. Simulation is its default mode.
 
-## Known pending test
+## Multiplayer validation
 
-- Confirm with two simultaneous players that a non-owner cannot view or
-  remove equipment from another player's grave.
+A hosted two-player test confirmed that a non-owner cannot view or remove
+equipment from another player's grave.
 
 ## License
 

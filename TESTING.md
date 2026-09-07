@@ -57,9 +57,9 @@ Results:
 - recovered equipment retained all nested contents;
 - the grave disappeared after the final stored root was removed.
 
-## Pending multiplayer test
+## Multiplayer ownership test
 
-Not yet validated:
+Validated on the hosted server with two simultaneous players:
 
 1. Player A dies and owns the resulting grave.
 2. Player B approaches and opens vicinity inventory.
@@ -67,5 +67,5 @@ Not yet validated:
 4. Player B must not be able to remove grave equipment.
 5. Player A must retain normal recovery access.
 
-This pending result must not be represented as completed until tested with two
-simultaneous players.
+Result: passed. Player B could not view or remove Player A's stored
+equipment, while Player A retained normal recovery access.
