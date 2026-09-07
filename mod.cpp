@@ -1,0 +1,10 @@
+name = "Zellno Death Grave";
+picture = "";
+logoSmall = "";
+logo = "";
+logoOver = "";
+tooltip = "Protected equipment graves";
+overview = "Creates protected vanilla-style graves for recovering equipment after death.";
+action = "";
+author = "Zellno";
+version = "0.0.13";
