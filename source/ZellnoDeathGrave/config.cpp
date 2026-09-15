@@ -115,16 +115,28 @@ class CfgMods
         dir = "ZellnoDeathGrave";
         name = "Zellno Death Grave";
         author = "Zellno";
-        version = "0.0.14";
+        version = "0.0.15";
         type = "mod";
 
         dependencies[] =
         {
-            "World"
+            "Game",
+            "World",
+            "Mission"
         };
 
         class defs
         {
+            class gameScriptModule
+            {
+                value = "";
+
+                files[] =
+                {
+                    "ZellnoDeathGrave/scripts/3_Game"
+                };
+            };
+
             class worldScriptModule
             {
                 value = "";
@@ -132,6 +144,16 @@ class CfgMods
                 files[] =
                 {
                     "ZellnoDeathGrave/scripts/4_World"
+                };
+            };
+
+            class missionScriptModule
+            {
+                value = "";
+
+                files[] =
+                {
+                    "ZellnoDeathGrave/scripts/5_Mission"
                 };
             };
         };

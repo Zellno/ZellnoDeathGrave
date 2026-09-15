@@ -2,6 +2,41 @@
 
 All notable changes to Zellno Death Grave are documented in this file.
 
+## 0.0.15 - 2026-09-15
+
+### Added
+
+- Optional private `My Grave` map marker for the grave owner.
+- Server profile configuration at
+  `$profile:ZellnoDeathGrave/Config.json`.
+- Marker synchronization for existing owned graves after connection or server
+  restart.
+- Automatic marker removal when a grave expires or becomes empty.
+
+### Configuration
+
+- `EnableDeathMarker` defaults to `0`.
+- Set `EnableDeathMarker` to `1` and restart the server to enable markers.
+- Keep the feature disabled when another installed mod already provides a
+  death marker.
+
+### Compatibility
+
+- Uses the vanilla DayZ map-marker interface.
+- Adds no mandatory map-mod dependency.
+- Tested visually with Zen's Map Enhancement.
+- DayZ Expansion and LBmaster Advanced Groups Map were not tested.
+
+### Validated
+
+- No marker appeared while `EnableDeathMarker` was `0`.
+- A private marker appeared at the death location after explicit activation.
+- The marker was synchronized again after a clean server restart.
+- The grave, equipment and nested contents persisted through the restart.
+- The grave and marker disappeared after the final equipment root was
+  recovered.
+- No Zellno Death Grave critical error appeared in the test logs.
+
 ## 0.0.14 - 2026-09-15
 
 ### Fixed

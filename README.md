@@ -5,10 +5,11 @@ when a player dies.
 
 ## Status
 
-Version `0.0.14` for DayZ 1.29.
+Version `0.0.15` for DayZ 1.29.
 
-The automatic grave workflow, persistence, ruined-clothing recovery and
-multiplayer ownership protection have completed functional testing.
+The automatic grave workflow, persistence, ruined-clothing recovery,
+multiplayer ownership protection and optional private death marker have
+completed functional testing.
 
 ## Features
 
@@ -20,6 +21,7 @@ multiplayer ownership protection have completed functional testing.
 - Transfers ruined clothing to the grave without losing its nested contents.
 - Leaves the item held in the player's hands at the death location.
 - Uses a vanilla DayZ cemetery tombstone model.
+- Provides an optional private `My Grave` map marker for the grave owner.
 - Prevents the grave from being carried, placed in cargo or taken into hands.
 - Hides the grave's equipment inventory from clients that do not match the
   synchronized owner identity.
@@ -79,6 +81,37 @@ Multiplayer ownership protection has been validated on the hosted server
 with two simultaneous players. A non-owner could not view or remove equipment
 from another player's grave, while the owner retained normal recovery access.
 
+## Optional private death marker
+
+Version `0.0.15` adds an optional private map marker named `My Grave`.
+
+The feature is disabled by default to avoid duplicate or conflicting death
+markers on servers that already provide this functionality through another
+mod. The server creates:
+
+`$profile:ZellnoDeathGrave/Config.json`
+
+Default configuration:
+
+```json
+{
+    "EnableDeathMarker": 0
+}
+```
+
+Set `EnableDeathMarker` to `1` and restart the server to enable the marker.
+
+Only the grave owner receives the marker. Existing owned graves are
+resynchronized when the player reconnects, including after a clean persistence
+restart. The marker is removed automatically when the grave expires or its
+final stored equipment root is recovered.
+
+The implementation uses the vanilla DayZ map-marker interface and adds no
+mandatory map-mod dependency. Creation, restart synchronization and removal
+were tested with Zen's Map Enhancement. DayZ Expansion and
+LBmaster Advanced Groups Map were not tested. Disable this feature if another installed mod
+already provides a death marker.
+
 ## Compatibility
 
 Designed for:
@@ -98,7 +131,8 @@ It contains no custom models, textures or sounds.
 3. Add `@ZellnoDeathGrave` to the client and server `-mod` launch parameter.
 4. Restart the server.
 
-No mission-file configuration is required.
+No mission-file modification is required. The optional death-marker
+configuration is generated under the server profile directory.
 
 ## Development utilities
 

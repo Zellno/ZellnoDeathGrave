@@ -14,15 +14,45 @@ Creates a persistent equipment grave when a player dies.
 [*]The grave automatically disappears after its final stored equipment root is removed.
 [*]Remaining grave and equipment expire after 24 hours.
 [*]Uses a vanilla DayZ cemetery tombstone model.
-[*]No configuration file required.
-[*]No CF, Dabs Framework or RaG dependency.
+[*]Optional private My Grave map marker for the grave owner.
+[*]Death marker is disabled by default to avoid conflicts.
+[*]No CF, Dabs Framework, RaG or map-mod dependency.
 [/list]
 
 [h2]Version[/h2]
 
-Current version: 0.0.14
+Current version: 0.0.15
 
 Tested on DayZ 1.29 with a dedicated server and a clean persistence restart.
+
+[h2]Optional death marker[/h2]
+
+Version 0.0.15 adds an optional private map marker named My Grave.
+
+The marker is disabled by default. The server creates:
+
+[code]$profile:ZellnoDeathGrave/Config.json[/code]
+
+Default:
+
+[code]
+{
+    "EnableDeathMarker": 0
+}
+[/code]
+
+Change the value to 1 and restart the server to enable the marker.
+
+Only the grave owner receives the marker. It is synchronized again after
+reconnection or server restart and is removed when the grave expires or its
+final stored equipment root is recovered.
+
+The marker uses the vanilla DayZ map interface and adds no mandatory map-mod
+dependency. It was tested with Zen's Map Enhancement. DayZ Expansion and
+LBmaster Advanced Groups Map have not been tested.
+
+Keep EnableDeathMarker set to 0 if another installed mod already provides a
+death marker.
 
 [h2]Installation[/h2]
 
@@ -38,8 +68,8 @@ Tested on DayZ 1.29 with a dedicated server and a clean persistence restart.
 
 Automatic grave creation, equipment transfer, nested inventory persistence,
 ruined-clothing recovery, manual recovery and empty-grave deletion have passed
-local testing. Two ruined clothing items and their contents were confirmed
-before and after a clean server restart.
+local testing. The optional private marker was validated with Zen's Map
+Enhancement, including creation, restart synchronization and removal.
 
 A dedicated hosted two-player test confirmed that a non-owner cannot view or
 remove stored equipment, while the owner retains normal recovery access.

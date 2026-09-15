@@ -8,6 +8,50 @@
 - Linux host
 - Windows DayZ Tools through Wine
 
+## Version 0.0.15 optional death marker validation
+
+### Default-disabled test
+
+- Confirmed that a new configuration uses `EnableDeathMarker = 0`.
+- Confirmed that grave creation and equipment transfer remained operational.
+- Confirmed that no `My Grave` marker appeared.
+- Confirmed that complete recovery still removed the empty grave.
+
+### Enabled Zen Map test
+
+1. Set `EnableDeathMarker` to `1`.
+2. Restart the dedicated server.
+3. Connect and confirm that no old marker is present.
+4. Create a grave through player death.
+5. Confirm that `My Grave` appears at the death location.
+6. Leave the grave and its equipment intact.
+7. Close the client and server.
+8. Restart the server and reconnect.
+9. Confirm that the existing grave marker is synchronized again.
+10. Recover every stored equipment root.
+11. Confirm that the grave and marker disappear.
+
+### Results
+
+- marker creation passed;
+- owner-only RPC delivery was recorded;
+- marker synchronization passed before and after restart;
+- grave equipment and nested contents persisted;
+- empty-grave deletion passed;
+- marker removal passed;
+- Zen's Map Enhancement remained operational;
+- no Zellno Death Grave critical error appeared in the test logs.
+
+### Compatibility scope
+
+The implementation uses the vanilla DayZ map-marker interface and has no
+mandatory dependency on Zen Map or another map mod. Visual behavior was tested
+with Zen's Map Enhancement.
+
+DayZ Expansion and LBmaster Advanced Groups Map were not tested. Servers using
+another death-marker system should leave `EnableDeathMarker` set to `0` unless
+they have verified the combination independently.
+
 ## Version 0.0.14 ruined clothing validation
 
 ### Test equipment

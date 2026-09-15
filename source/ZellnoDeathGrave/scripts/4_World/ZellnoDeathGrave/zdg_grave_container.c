@@ -87,12 +87,20 @@ class ZellnoDeathGrave_Container : Container_Base
         SetAllowDamage(false);
 
         if (GetGame().IsServer())
+        {
+            ZDG_MarkerServer.RegisterGrave(this);
             ZDG_ScheduleExpiryCheck(1000);
+        }
     }
 
     bool ZDG_IsClaimed()
     {
         return m_ZDG_IsClaimed;
+    }
+
+    string ZDG_GetOwnerId()
+    {
+        return m_ZDG_OwnerId;
     }
 
     bool ZDG_IsOwner(PlayerBase player)
@@ -147,6 +155,7 @@ class ZellnoDeathGrave_Container : Container_Base
         SetSynchDirty();
 
         ZDG_ScheduleExpiryCheck(60000);
+        ZDG_MarkerServer.NotifyGraveCreated(this);
 
         Print("[ZDG] Grave owner assigned successfully. Lifetime: 24 hours.");
         return true;
@@ -182,6 +191,8 @@ class ZellnoDeathGrave_Container : Container_Base
         if (remainingSeconds <= 0)
         {
             Print("[ZDG] Grave expired after 24 hours. Stored roots removed: " + ZDG_GetStoredRootCount().ToString());
+            ZDG_MarkerServer.NotifyGraveRemoved(this);
+            ZDG_MarkerServer.UnregisterGrave(this);
             GetGame().ObjectDelete(this);
             return;
         }
@@ -217,6 +228,8 @@ class ZellnoDeathGrave_Container : Container_Base
             return;
 
         Print("[ZDG] Empty grave removed.");
+        ZDG_MarkerServer.NotifyGraveRemoved(this);
+        ZDG_MarkerServer.UnregisterGrave(this);
         GetGame().ObjectDelete(this);
     }
 

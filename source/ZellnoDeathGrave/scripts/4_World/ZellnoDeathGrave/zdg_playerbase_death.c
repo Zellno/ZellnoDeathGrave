@@ -2,6 +2,21 @@ modded class PlayerBase
 {
     protected bool m_ZDG_AutomaticGraveCreated;
 
+    override void EEInit()
+    {
+        super.EEInit();
+
+        if (GetGame().IsServer())
+        {
+            GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(ZDG_SyncOwnGraveMarkers, 3000, false);
+        }
+    }
+
+    protected void ZDG_SyncOwnGraveMarkers()
+    {
+        ZDG_MarkerServer.SyncPlayer(this);
+    }
+
     override void EEKilled(Object killer)
     {
         string zdgOwnerId = "";
@@ -40,6 +55,7 @@ modded class PlayerBase
 
         if (!zdgGrave.ZDG_AssignOwnerId(zdgOwnerId))
         {
+            ZDG_MarkerServer.UnregisterGrave(zdgGrave);
             GetGame().ObjectDelete(zdgObject);
             Print("[ZDG] Automatic grave removed: owner assignment failed.");
             return;
