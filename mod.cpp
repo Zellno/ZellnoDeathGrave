@@ -7,4 +7,4 @@ tooltip = "Protected equipment graves";
 overview = "Creates protected vanilla-style graves for recovering equipment after death.";
 action = "";
 author = "Zellno";
-version = "0.0.13";
+version = "0.0.14";

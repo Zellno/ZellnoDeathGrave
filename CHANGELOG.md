@@ -2,6 +2,31 @@
 
 All notable changes to Zellno Death Grave are documented in this file.
 
+## 0.0.14 - 2026-09-15
+
+### Fixed
+
+- Ruined clothing is no longer rejected when transferred into a Zellno Death
+  Grave attachment slot.
+- Nested items inside ruined clothing are preserved with their parent clothing.
+
+### Scope
+
+- The exception applies only when `Clothing` is attached to
+  `ZellnoDeathGrave_Container`.
+- Vanilla attachment rules remain unchanged for all other destinations.
+
+### Validated
+
+- Two ruined clothing items containing identifiable nested inventory were
+  transferred successfully.
+- Both ruined clothing items and their contents survived a clean server
+  restart.
+- Both ruined clothing items were recovered with their contents intact.
+- The grave was deleted after its final stored equipment root was removed.
+- No Death Grave error, invalid-location discard or persistence-corruption
+  warning appeared in the test logs.
+
 ## 0.0.13 - 2026-09-06
 
 ### Added

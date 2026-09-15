@@ -8,6 +8,37 @@
 - Linux host
 - Windows DayZ Tools through Wine
 
+## Version 0.0.14 ruined clothing validation
+
+### Test equipment
+
+- ruined `HunterJacket` with `23/24` cargo usage and identifiable nested items;
+- ruined `HunterPants` with `9/20` cargo usage, containing a wooden stick and a
+  pumpkin;
+- additional equipped clothing, backpack, weapons and equipment as controls.
+
+### Procedure
+
+1. Confirm both ruined clothing items and their nested contents before death.
+2. Create a grave through player death.
+3. Inspect the grave without removing any stored equipment.
+4. Close the client and server normally.
+5. Restart the server and reconnect.
+6. Inspect both ruined clothing items and their contents.
+7. Move each ruined clothing item from the grave to the ground and into hands.
+8. Remove all remaining stored equipment.
+
+### Results
+
+- both ruined clothing roots entered compatible grave attachment slots;
+- all nested items remained inside their original ruined clothing;
+- both ruined clothing items survived a clean persistence restart;
+- no unexpected vicinity pile was created;
+- both ruined clothing items were recovered with their contents intact;
+- the empty grave was deleted automatically;
+- no Death Grave error, invalid-location discard or persistence-corruption
+  warning appeared in the test logs.
+
 ## Version 0.0.13 validation
 
 ### Compilation and installation

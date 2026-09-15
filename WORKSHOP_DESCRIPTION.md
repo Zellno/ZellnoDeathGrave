@@ -8,6 +8,7 @@ Creates a persistent equipment grave when a player dies.
 [*]Automatic grave creation at the death position.
 [*]Equipped clothing and backpacks are transferred to the grave.
 [*]Contents remain inside their original clothing and backpacks.
+[*]Ruined clothing and its nested contents are preserved.
 [*]The item held in the player's hands remains at the death location.
 [*]Manual equipment recovery through the inventory interface.
 [*]The grave automatically disappears after its final stored equipment root is removed.
@@ -19,7 +20,7 @@ Creates a persistent equipment grave when a player dies.
 
 [h2]Version[/h2]
 
-Current version: 0.0.13
+Current version: 0.0.14
 
 Tested on DayZ 1.29 with a dedicated server and a clean persistence restart.
 
@@ -36,7 +37,9 @@ Tested on DayZ 1.29 with a dedicated server and a clean persistence restart.
 [h2]Testing status[/h2]
 
 Automatic grave creation, equipment transfer, nested inventory persistence,
-manual recovery and empty-grave deletion have passed local testing.
+ruined-clothing recovery, manual recovery and empty-grave deletion have passed
+local testing. Two ruined clothing items and their contents were confirmed
+before and after a clean server restart.
 
 A dedicated hosted two-player test confirmed that a non-owner cannot view or
 remove stored equipment, while the owner retains normal recovery access.

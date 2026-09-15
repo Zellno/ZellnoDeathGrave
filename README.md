@@ -5,10 +5,10 @@ when a player dies.
 
 ## Status
 
-Version `0.0.13` for DayZ 1.29.
+Version `0.0.14` for DayZ 1.29.
 
-The automatic grave workflow, persistence and multiplayer ownership
-protection have completed functional testing.
+The automatic grave workflow, persistence, ruined-clothing recovery and
+multiplayer ownership protection have completed functional testing.
 
 ## Features
 
@@ -17,6 +17,7 @@ protection have completed functional testing.
 - Transfers directly equipped clothing, backpacks and compatible shoulder or
   melee attachments into dedicated grave attachment slots.
 - Preserves the inventory stored inside transferred clothing and backpacks.
+- Transfers ruined clothing to the grave without losing its nested contents.
 - Leaves the item held in the player's hands at the death location.
 - Uses a vanilla DayZ cemetery tombstone model.
 - Prevents the grave from being carried, placed in cargo or taken into hands.
@@ -56,6 +57,18 @@ The persistence test passed with loaded clothing and a loaded backpack:
 - nested contents remained inside their original equipment;
 - all equipment and nested contents were recovered successfully;
 - the empty grave was deleted successfully.
+
+## Ruined clothing validation
+
+Version `0.0.14` adds a narrowly scoped exception allowing ruined `Clothing`
+items to be attached to `ZellnoDeathGrave_Container`. Normal vanilla attachment
+rules remain unchanged for every other destination.
+
+A local dedicated-server test used two ruined clothing items containing
+identifiable nested inventory. Both items and all contents entered the grave,
+survived a clean server restart, were recovered successfully, and the empty
+grave was deleted automatically. No Death Grave error, invalid-location discard
+or persistence-corruption warning appeared in the test logs.
 
 ## Ownership and security status
 

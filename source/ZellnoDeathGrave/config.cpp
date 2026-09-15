@@ -115,7 +115,7 @@ class CfgMods
         dir = "ZellnoDeathGrave";
         name = "Zellno Death Grave";
         author = "Zellno";
-        version = "0.0.13";
+        version = "0.0.14";
         type = "mod";
 
         dependencies[] =

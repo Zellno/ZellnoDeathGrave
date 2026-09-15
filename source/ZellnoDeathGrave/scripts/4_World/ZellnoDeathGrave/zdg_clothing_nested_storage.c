@@ -1,5 +1,13 @@
 modded class Clothing
 {
+    override bool CanPutAsAttachment(EntityAI parent)
+    {
+        if (parent && parent.IsKindOf("ZellnoDeathGrave_Container"))
+            return true;
+
+        return super.CanPutAsAttachment(parent);
+    }
+
     override bool CanLoadItemIntoCargoClothingConditions(EntityAI item)
     {
         EntityAI parent = GetHierarchyParent();
