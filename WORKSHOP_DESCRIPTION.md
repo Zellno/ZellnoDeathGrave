@@ -117,6 +117,12 @@ Buy Me a Coffee — Noob Open Source
 
 Thank you for your support!
 
+[h1]OFFICIAL MOD SUPPORT[/h1]
+
+For questions, bug reports, compatibility feedback and mod support, join the official Zellno Discord community:
+
+[url=https://discord.gg/bhfBetKtqr]Zellno Mod Support — Discord[/url]
+
 [h2]License[/h2]
 
 MIT License.
